@@ -1,6 +1,13 @@
+/*
+	g++ -I ./include/ -Ofast -DNDEBUG -Wall -Wextrasample/multi.cpp lib/libmcl.a -lgmp -lgmpxx -lcrypto
+*/
+// BLS12-381 ; sizeof(Fp) = 48, sizeof(Fr) = 32
 #define MCL_MAX_FP_BIT_SIZE 384
 #define MCL_MAX_FR_BIT_SIZE 256
 #include <mcl/bn.hpp>
+// BN254 ; sizeof(Fp) = 32, sizeof(Fr) = 32
+#undef MCL_MAX_FP_BIT_SIZE
+#define MCL_MAX_FP_BIT_SIZE 256
 #include <mcl/bn2.hpp>
 #include <iostream>
 
